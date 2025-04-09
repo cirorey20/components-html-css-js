@@ -1,0 +1,105 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para el menú desplegable en pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultar los enlaces en pantallas pequeñas inicialmente */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Ajustar según la altura de la barra de navegación */
+        left: 0;
+        text-align: center;
+        transition: transform 0.3s ease-in-out; /* Transición para el despliegue */
+        transform: translateY(-100%); /* Ocultar el menú fuera de la vista inicialmente */
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostrar los enlaces cuando la clase 'active' está presente */
+        transform: translateY(0); /* Desplegar el menú */
+    }
+
+    .nav-links li a {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: block; /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    }
+
+    /* Animación del botón hamburguesa al abrir/cerrar */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+}
